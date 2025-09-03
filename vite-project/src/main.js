@@ -29,8 +29,8 @@ class MonthCalendar {
     this.gridEl  = this.root.querySelector('.calendar__grid');
     this.current = new Date(this.opts.date.getFullYear(), this.opts.date.getMonth(), 1);
 
-    this.startDay = null; // начало интервала (ISO строки)
-    this.endDay = null;   // конец интервала
+    this.startDay = null;
+    this.endDay = null;
 
     this.render();
     this.attachEvents();
@@ -99,7 +99,6 @@ class MonthCalendar {
 		this.gridEl.appendChild(li);
 	}
 
-    // После рендера обновим выделение
     this.updateSelection();
   }
 
@@ -147,7 +146,7 @@ class MonthCalendar {
 		const days = this.gridEl.querySelectorAll('.calendar__day');
 		days.forEach((li) => {
 			const d = li.dataset.date;
-			// Сначала снимаем все классы
+
 			li.classList.remove(
 				'calendar__day--selected',
 				'calendar__day--start',
@@ -178,7 +177,6 @@ class MonthCalendar {
   }
 }
 
-// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
   new MonthCalendar(document.querySelector('.calendar'));
 });
