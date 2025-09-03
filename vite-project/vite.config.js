@@ -10,6 +10,8 @@ export default defineConfig({
 		port: 3000,
 	},
 
+	base: './',
+
 	plugins: [
 		viteConvertPugInHtml(),
 		imagePresets({
@@ -55,7 +57,7 @@ export default defineConfig({
 	},
 
 	build: {
-		outDir: './dist',
+		outDir: '../dist',
 		assetsDir: 'assets',
 	},
 });
