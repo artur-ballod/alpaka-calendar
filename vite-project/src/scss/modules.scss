@@ -1,0 +1,95 @@
+@import 'variables';
+@import 'mixins';
+@import 'functions';
+@import 'calendar';
+@import 'fonts';
+
+body {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-color);
+  transition: 0.25s ease-in;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select { font: inherit; }
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+textarea { vertical-align: middle; }
+
+textarea { resize: none; }
+
+section { position: relative; }
+
+input,
+select,
+button { outline: none; }
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: toRem(40);
+  padding: toRem(64) 0;
+}
+
+.switch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: toRem(96);
+  height: toRem(48);
+  padding: toRem(10) 0;
+  border: none;
+  border-radius: toRem(6);
+  box-shadow: 0 0 toRem(20) toRem(5) rgba(0, 0, 0, 0.2);
+  background-color: #38acec;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 60% 60%; 
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='800px' height='800px' viewBox='0 0 36 36' aria-hidden='true' role='img' class='iconify iconify--twemoji' preserveAspectRatio='xMidYMid meet'%3E%3Cpath fill='%23FFAC33' d='M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm20.587 2.828s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414z'/%3E%3Ccircle fill='%23FFAC33' cx='18' cy='18' r='10'/%3E%3Cpath fill='%23E1E8ED' d='M29.777 23.2c-.642 0-1.26.1-1.843.285c-.688-2.028-2.56-3.485-4.767-3.485c-2.368 0-4.35 1.678-4.899 3.937a3.407 3.407 0 0 0-2.101-.736c-1.933 0-3.5 1.611-3.5 3.6c0 .483.096.941.264 1.363A3.715 3.715 0 0 0 11.889 28C9.741 28 8 29.791 8 32s1.741 4 3.889 4h17.889C33.214 36 36 33.136 36 29.6c0-3.535-2.786-6.4-6.223-6.4z'/%3E%3C/svg%3E");
+  transition: 0.25s ease-in;
+  cursor: pointer;
+  &.dark {
+    box-shadow: 0 0 toRem(20) toRem(5) rgba(195, 133, 0, 0.2);
+    background-color: #021744;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800px' height='800px' viewBox='0 0 1024 1024' class='icon' version='1.1'%3E%3Cpath d='M895.573333 652.096a21.504 21.504 0 0 0-20.693333-5.504A406.186667 406.186667 0 0 1 768 661.333333c-223.509333 0-405.333333-181.824-405.333333-405.333333 0-35.136 4.949333-71.104 14.741333-106.88a21.333333 21.333333 0 0 0-26.197333-26.218667C156.970667 175.957333 21.333333 353.514667 21.333333 554.666667c0 247.04 200.96 448 448 448 201.173333 0 378.709333-135.637333 431.744-329.856a21.333333 21.333333 0 0 0-5.504-20.714667z' fill='%23EFD358'/%3E%3Cpath d='M725.333333 106.666667c-35.285333 0-64-28.714667-64-64a21.333333 21.333333 0 1 0-42.666666 0c0 35.285333-28.714667 64-64 64a21.333333 21.333333 0 1 0 0 42.666666c35.285333 0 64 28.714667 64 64a21.333333 21.333333 0 1 0 42.666666 0c0-35.285333 28.714667-64 64-64a21.333333 21.333333 0 1 0 0-42.666666zM981.333333 362.666667c-35.285333 0-64-28.714667-64-64a21.333333 21.333333 0 1 0-42.666666 0c0 35.285333-28.714667 64-64 64a21.333333 21.333333 0 1 0 0 42.666666c35.285333 0 64 28.714667 64 64a21.333333 21.333333 0 1 0 42.666666 0c0-35.285333 28.714667-64 64-64a21.333333 21.333333 0 1 0 0-42.666666z' fill='%23C6C6C6'/%3E%3C/svg%3E");
+    transition: 0.25s ease-out;
+  }
+
+  @media only screen and (min-width: 1000px) {
+    &:hover {
+      opacity: 0.8;
+      transition: 0.25s ease-out;
+    }
+  }
+}

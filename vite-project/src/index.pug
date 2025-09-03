@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="robots" content="noindex")
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    title Тестовое задание  
+  body
+    main.main
+      button(type="button").js-toggle-theme.switch
+      .calendar
+        .calendar__header
+          button(type="button").calendar__arrow.calendar__arrow--prev
+          h3.calendar__title
+          button(type="button").calendar__arrow.calendar__arrow--next
+        ul.calendar__grid
+    script(type="module" src="/main.js")
